@@ -1,0 +1,274 @@
+<html>
+<head>
+	<title>La tragaperras</title>
+	<link rel="stylesheet" type="text/css" href="./css.css" />
+<script language="javascript">
+
+/*Primer definim els 3 arrays que construiran els diferents valors de cada casella*/
+
+var u = new Array("cireres", "llimones", "alvercocs", "sindries", "diamants", "maduixes", "7")
+var dos = new Array("llimones", "7", "cireres", "sindries", "alvercocs", "diamants", "maduixes")
+var tres = new Array("diamants", "llimones", "alvercocs", "7", "cireres", "sindries", "maduixes")
+
+/*Definim les primeres funcions posant randoms per a la creació dels diferents items aleatoris*/
+
+function casella1()
+{
+z=[Math.round(Math.random()*6)];
+return u[z];
+}
+function casella2()
+{
+y=[Math.round(Math.random()*6)];
+return dos[y];
+}
+function casella3()
+{
+h=[Math.round(Math.random()*6)];
+return tres[h];
+}
+
+/*les 3 funcions que faran sumar 1 per a cada click d'avance*/
+
+function avance1()
+{
+	var x=0;
+	while(x<u.length)
+		{
+		if (exemple14.valor1.value==u[6])
+			{
+			return u[0];
+			}
+		else if (exemple14.valor1.value==u[x])
+			{
+			x++;
+			return u[x];
+			}
+		x++;
+			
+	}
+}
+function avance2()
+{
+	var x=0;
+	while(x<dos.length)
+		{
+		if (exemple14.valor2.value==dos[6])
+			{
+			return dos[0];
+			}
+		else if (exemple14.valor2.value==dos[x])
+			{
+			x++;
+			return dos[x];
+			}
+		x++;	
+		}
+}
+function avance3()
+{
+	var x=0;
+	while(x<tres.length)
+		{
+		if (exemple14.valor3.value==tres[6])
+			{
+			return tres[0];
+			}
+		else if (exemple14.valor3.value==tres[x])
+			{
+			x++;
+			return tres[x];
+			}
+		x++;	
+		}
+}
+
+/*aqui trobem les dos funcions que definiran si els botons 'Avance' estaràn habilitats o no*/
+
+function habilita()
+{
+	if (exemple14.ttavances.value!=0)
+		{ 
+		exemple14.nAvance1.disabled = false; 
+		exemple14.nAvance2.disabled = false; 
+		exemple14.nAvance3.disabled = false; 
+		}
+}
+
+function deshabilita()
+{
+	if (exemple14.ttavances.value==0)
+		{ 
+		exemple14.nAvance1.disabled = true; 
+		exemple14.nAvance2.disabled = true; 
+		exemple14.nAvance3.disabled = true; 
+		}
+}
+</script>
+
+</head>
+<body>
+<h1><img src="titol.PNG" width="506" height="53"></h1>
+<form name="exemple14" method="post">
+  <table width="951" border="0">
+    <tr>
+	  <td colspan="3">Premi: 
+      <input name="premis" type="text" class="mitjana" value="" size="5" maxlength="5" ReadOnly>
+      Total Premis: 
+      <input name="ttpremis" type="text" class="gran" value="0" size="15" maxlength="15" readonly>    	  
+	  <td colspan="2">n&ordm; Jugades   
+        <input name="jugades" type="text" class="mitjana" value="" size="10" maxlength="10" ReadOnly></td>
+    </tr>
+	<tr>
+
+	  <td width="141" align="center"><input name="valor1" type="text" class="caselles" value="" size="15" maxlength="15" ReadOnly></td>
+      <td width="141" align="center"><input name="valor2" type="text" class="caselles" value="" size="15" maxlength="15" ReadOnly></td>
+	  <td width="138" align="center"><input name="valor3" type="text" class="caselles" value="" size="15" maxlength="15" ReadOnly></td>
+      <td width="184">n&ordm; Avances 
+      <input name="avances" type="text" class="mitjana" value="" size="5" maxlength="5" ReadOnly></td>
+      <td width="325">Total Avances
+      <input name="ttavances" type="text" class="mitjana" value="0" size="5" maxlength="5" ReadOnly></td>
+	</tr>
+    <tr>
+
+	  <td class="boto"><input type="button" name="nAvance1" value="Avance1" disabled onClick="exemple14.valor1.value=avance1();
+																				exemple14.premis.value=tpremis();
+																				exemple14.ttpremis.value=totalpremis();
+																				exemple14.ttavances.value--;
+																				deshabilita();
+																				exemple14.avances.value=navances();"></td>
+      <td class="boto"><input type="button" name="nAvance2" value="Avance2" disabled onClick="exemple14.valor2.value=avance2();
+																				exemple14.premis.value=tpremis();
+																				exemple14.ttpremis.value=totalpremis();
+																				exemple14.ttavances.value--;
+																				deshabilita();
+																				exemple14.avances.value=navances();"></td>
+      <td class="boto"><input type="button" name="nAvance3" value="Avance3" disabled onClick="exemple14.valor3.value=avance3();
+																				exemple14.premis.value=tpremis();
+																				exemple14.ttavances.value--;
+																				exemple14.ttpremis.value=totalpremis();
+																				deshabilita();
+																				exemple14.avances.value=navances();"></td>
+      <td class="boto"><input type="button" value="Jugar!" onClick="exemple14.valor1.value=casella1();
+																		exemple14.valor2.value=casella2();
+																		exemple14.valor3.value=casella3();
+																		exemple14.premis.value=tpremis();
+																		exemple14.jugades.value++;
+																		exemple14.avances.value=navances();
+																		exemple14.ttpremis.value=totalpremis();
+																		exemple14.ttavances.value=totalavances();
+																		habilita();"></td>
+    </tr>
+    <tr>
+      <td height="54" colspan="3" class="daus"></td>
+    </tr>
+    <tr>
+      <td height="223" colspan="2" align="left" valign="top">
+		<p>777 ~ <b>240&euro;</b></p>
+		<p>ALVERCOCS ~ <b>180&euro;</b></p>
+		<p>SINDRIES ~<b> 90&euro;</b></p>
+		<p>MADUIXES ~ <b>45&euro;</b></p>
+		<p>LLIMONES ~ <b>22&euro;</b></p>
+		<p>CIRERES ~ <b>11&euro;</b></p></td>
+      <td height="223" align="left" valign="top">
+		<p>-77 ~ <b>1*Avance</b></p>
+		<p>SS- ~<b> 1*Avance</b></p>
+		<p>MM- ~<b> 2*Avance</b></p>
+		<p>-CC ~<b> 2*Avance</b></p>
+		<p>LL M A ~<b> 3*Avance</b></p></td>
+    </tr>
+  </table>
+</form>
+
+<script language="javascript">
+
+/*aqui donem valor a les caselles per a que surtin els premis*/
+
+function tpremis()
+{
+	if (exemple14.valor1.value=="7" && exemple14.valor2.value=="7" && exemple14.valor3.value=="7")
+		{
+		return 240;
+		}
+	else if (exemple14.valor1.value=="alvercocs" && exemple14.valor2.value=="alvercocs" && exemple14.valor3.value=="alvercocs")
+		{
+		return 180;
+		}
+	else if (exemple14.valor1.value=="sindries" && exemple14.valor2.value=="sindries" && exemple14.valor3.value=="sindries")
+		{
+		return 90;
+		}
+	else if (exemple14.valor1.value=="maduixes" && exemple14.valor2.value=="maduixes" && exemple14.valor3.value=="maduixes")
+		{
+		return 45;
+		}
+	else if (exemple14.valor1.value=="llimones" && exemple14.valor2.value=="llimones" && exemple14.valor3.value=="llimones")
+		{
+		return 22;
+		}
+	else if (exemple14.valor1.value=="cireres" && exemple14.valor2.value=="cireres" && exemple14.valor3.value=="cireres")
+		{
+		return 11;
+		}
+	else
+		{
+		return 0;
+		}
+}
+
+/*aqui donem valor a les caselles per a que surtin els avances*/
+
+function navances()
+{
+	if (exemple14.valor1.value!="7" && exemple14.valor2.value=="7" && exemple14.valor3.value=="7")
+	{
+	return 1;
+	}
+	else if (exemple14.valor1.value=="sindries" && exemple14.valor2.value=="sindries" && exemple14.valor3.value!="sindries")
+	{
+	return 1;
+	}
+	else if (exemple14.valor1.value=="maduixes" && exemple14.valor2.value=="maduixes" && exemple14.valor3.value!="maduixes")
+	{
+	return 2;
+	}
+	else if (exemple14.valor1.value!="cireres" && exemple14.valor2.value=="cireres" && exemple14.valor3.value=="cireres")
+	{
+	return 2;
+	}
+	else if (exemple14.valor1.value=="llimones" && exemple14.valor2.value=="maduixes" && exemple14.valor3.value=="alvercocs")
+	{
+	return 3;
+	}
+	else
+	{
+	return 0;
+	}
+}
+
+/*aqui fem que els valors un cop guanyats no es perdin, en el cas del total premis i total avances*/
+
+function totalpremis()
+{
+	var suma;
+	var tsuma;
+
+	suma=parseInt(exemple14.premis.value);
+	tsuma=parseInt(exemple14.ttpremis.value);
+	tsuma=(suma+tsuma);
+	return tsuma;
+}
+
+function totalavances()
+{
+	var tavance;
+	var ttavance;
+
+	tavance=parseInt(exemple14.avances.value);
+	ttavance=parseInt(exemple14.ttavances.value);
+	ttavance=(tavance+ttavance);
+	return ttavance;
+}
+</script>
+</body>
+</html>

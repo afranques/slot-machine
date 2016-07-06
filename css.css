@@ -1,0 +1,33 @@
+body {
+	background: url(./fons.JPG);
+	font-family: Arial;
+	color: white;
+	font-size: 16px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.mitjana {
+	font-size:15px;
+	font-weight: bold;
+}
+
+.gran {
+	font-size:17px;
+}
+
+.caselles {
+	font-size:19px;
+	text-align: center;
+}
+
+.boto {
+	text-align: center;
+}
+
+.daus {
+	background-image: url(./dadosllegen.PNG);
+	background-repeat: repeat-x;
+}
